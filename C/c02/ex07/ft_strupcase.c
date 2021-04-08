@@ -1,35 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_strupcase.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: usantos- <usantos-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/04 03:38:18 by usantos-          #+#    #+#             */
-/*   Updated: 2021/04/08 12:54:57 by usantos-         ###   ########.fr       */
+/*   Created: 2021/04/08 02:40:18 by usantos-          #+#    #+#             */
+/*   Updated: 2021/04/08 17:43:17 by usantos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_putchar(int c)
+char	*ft_strupcase(char *str)
 {
-	write(1, &c, 1);
-}
+	int		i;
+	char	now;
 
-void	ft_putnbr(int nb)
-{
-	if (nb == -2147483648)
+	i = 0;
+	while (str[i] != '\0')
 	{
-		write(1, "-2", 2);
-		nb = 147483648;
+		now = str[i];
+		if (now >= 'a' && now <= 'z')
+			str[i] = now - 32;
+		i++;
 	}
-	if (nb < 0)
-	{
-		write(1, "-", 1);
-		nb = (nb * (-1));
-	}
-	if (nb >= 10)
-		ft_putnbr(nb / 10);
-	ft_putchar(nb % 10 + '0');
+	return (str);
 }

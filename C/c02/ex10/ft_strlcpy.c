@@ -1,35 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: usantos- <usantos-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/04 03:38:18 by usantos-          #+#    #+#             */
-/*   Updated: 2021/04/08 12:54:57 by usantos-         ###   ########.fr       */
+/*   Created: 2021/04/08 13:17:19 by usantos-          #+#    #+#             */
+/*   Updated: 2021/04/08 17:54:44 by usantos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
 
-void	ft_putchar(int c)
+unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 {
-	write(1, &c, 1);
-}
+	unsigned int i;
 
-void	ft_putnbr(int nb)
-{
-	if (nb == -2147483648)
+	i = 0;
+	while (src[i])
 	{
-		write(1, "-2", 2);
-		nb = 147483648;
+		if (i < size - 1)
+			dest[i] = src[i];
+		i++;
 	}
-	if (nb < 0)
-	{
-		write(1, "-", 1);
-		nb = (nb * (-1));
-	}
-	if (nb >= 10)
-		ft_putnbr(nb / 10);
-	ft_putchar(nb % 10 + '0');
+	dest[i] = '\0';
+	return (i);
 }

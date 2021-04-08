@@ -1,35 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_str_is_numeric.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: usantos- <usantos-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/04 03:38:18 by usantos-          #+#    #+#             */
-/*   Updated: 2021/04/08 12:54:57 by usantos-         ###   ########.fr       */
+/*   Created: 2021/04/07 22:59:03 by usantos-          #+#    #+#             */
+/*   Updated: 2021/04/08 17:41:11 by usantos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_putchar(int c)
+int	ft_str_is_numeric(char *str)
 {
-	write(1, &c, 1);
-}
+	int		i;
+	int		boolean;
+	char	now;
 
-void	ft_putnbr(int nb)
-{
-	if (nb == -2147483648)
+	i = 0;
+	boolean = 1;
+	while (boolean)
 	{
-		write(1, "-2", 2);
-		nb = 147483648;
+		now = str[i];
+		if (now == '\0')
+			break ;
+		boolean = 0;
+		if (now >= '0' && now <= '9')
+		{
+			boolean = 1;
+		}
+		i++;
 	}
-	if (nb < 0)
-	{
-		write(1, "-", 1);
-		nb = (nb * (-1));
-	}
-	if (nb >= 10)
-		ft_putnbr(nb / 10);
-	ft_putchar(nb % 10 + '0');
+	return (boolean);
 }

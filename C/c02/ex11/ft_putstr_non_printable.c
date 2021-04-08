@@ -1,35 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_non_printable.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: usantos- <usantos-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/04 03:38:18 by usantos-          #+#    #+#             */
-/*   Updated: 2021/04/08 12:54:57 by usantos-         ###   ########.fr       */
+/*   Created: 2021/04/08 14:23:20 by usantos-          #+#    #+#             */
+/*   Updated: 2021/04/08 17:54:32 by usantos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_putchar(int c)
+void	ft_putchar(char c)
 {
 	write(1, &c, 1);
 }
 
-void	ft_putnbr(int nb)
+char	ft_printable(char c)
 {
-	if (nb == -2147483648)
+	if (c >= ' ' && c < 127)
+		return (c);
+	return (0);
+}
+
+void	ft_putstr_non_printable(char *str)
+{
+	int		i;
+	char	now;
+
+	i = 0;
+	while (str[i] != '\0')
 	{
-		write(1, "-2", 2);
-		nb = 147483648;
+		now = str[i];
+		if (ft_printable(now))
+			ft_putchar(now);
+		else
+		{
+			ft_putchar('\\');
+			ft_putchar("0123456789ABCDEF"[now / 16]);
+			ft_putchar("0123456789ABCDEF"[now % 16]);
+		}
+		i++;
 	}
-	if (nb < 0)
-	{
-		write(1, "-", 1);
-		nb = (nb * (-1));
-	}
-	if (nb >= 10)
-		ft_putnbr(nb / 10);
-	ft_putchar(nb % 10 + '0');
 }
