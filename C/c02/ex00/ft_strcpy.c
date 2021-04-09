@@ -6,14 +6,20 @@
 /*   By: usantos- <usantos-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 23:36:22 by usantos-          #+#    #+#             */
-/*   Updated: 2021/04/08 17:38:05 by usantos-         ###   ########.fr       */
+/*   Updated: 2021/04/09 12:22:14 by usantos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 char	*ft_strcpy(char *dest, char *src)
 {
-	while (*src)
-		*dest++ = *src++;
-	*dest = '\0';
+	int	i;
+
+	i = 0;
+	while (src[i] != '\0')
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = '\0';
 	return (dest);
 }

@@ -6,9 +6,11 @@
 /*   By: usantos- <usantos-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 14:23:20 by usantos-          #+#    #+#             */
-/*   Updated: 2021/04/08 17:54:32 by usantos-         ###   ########.fr       */
+/*   Updated: 2021/04/09 12:22:56 by usantos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <unistd.h>
 
 void	ft_putchar(char c)
 {
@@ -17,7 +19,7 @@ void	ft_putchar(char c)
 
 char	ft_printable(char c)
 {
-	if (c >= ' ' && c < 127)
+	if (c >= 32 && c < 127)
 		return (c);
 	return (0);
 }
