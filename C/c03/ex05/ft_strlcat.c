@@ -6,13 +6,13 @@
 /*   By: usantos- <usantos-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/10 12:47:13 by usantos-          #+#    #+#             */
-/*   Updated: 2021/04/11 13:55:06 by usantos-         ###   ########.fr       */
+/*   Updated: 2021/04/12 01:15:29 by usantos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 {
-	int	i;
+	int				i;
 	unsigned int	dst_size;
 
 	i = 0;
