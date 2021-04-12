@@ -6,7 +6,7 @@
 /*   By: usantos- <usantos-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/10 10:31:26 by usantos-          #+#    #+#             */
-/*   Updated: 2021/04/10 11:01:25 by usantos-         ###   ########.fr       */
+/*   Updated: 2021/04/12 17:24:40 by usantos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strcat(char *dest, char *src)
 		p_dest++;
 	while (*src != '\0')
 	{
-		*p_dest = *src;
+		*p_dest = *(unsigned char *)src;
 		p_dest++;
 		src++;
 	}
