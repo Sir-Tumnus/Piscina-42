@@ -6,7 +6,7 @@
 /*   By: usantos- <usantos-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 23:36:22 by usantos-          #+#    #+#             */
-/*   Updated: 2021/04/09 12:22:14 by usantos-         ###   ########.fr       */
+/*   Updated: 2021/04/10 09:35:02 by usantos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ char	*ft_strcpy(char *dest, char *src)
 
 	i = 0;
 	while (src[i] != '\0')
-	{
+	{j
 		dest[i] = src[i];
 		i++;
 	}

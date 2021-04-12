@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: usantos- <usantos-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/07 13:46:12 by usantos-          #+#    #+#             */
-/*   Updated: 2021/04/11 23:57:35 by usantos-         ###   ########.fr       */
+/*   Created: 2021/04/10 11:01:48 by usantos-          #+#    #+#             */
+/*   Updated: 2021/04/10 11:17:08 by usantos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strncpy(char *dest, char *src, unsigned int n)
+char	*ft_strncat(char *dest, char *src, unsigned int nb)
 {
-	unsigned int	i;
+	char *p_dest;
 
-	i = 0;
-	while (i < n && src[i] != '\0')
+	p_dest = dest;
+	while (*p_dest)
+		p_dest++;
+	while (*src && nb > 0)
 	{
-		dest[i] = src[i];
-		i++;
+		*p_dest = *src;
+		p_dest++;
+		src++;
+		nb--;
 	}
-	while (i < n)
-	{
-		dest[i] = '\0';
-		i++;
-	}
+	*p_dest = '\0';
 	return (dest);
 }

@@ -6,7 +6,7 @@
 /*   By: usantos- <usantos-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 11:15:19 by usantos-          #+#    #+#             */
-/*   Updated: 2021/04/08 17:53:47 by usantos-         ###   ########.fr       */
+/*   Updated: 2021/04/09 22:23:36 by usantos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char	*ft_to_lowercase(char *str)
 }
 
 char	*ft_strcapitalize(char *str)
-{
+{	
 	int	i;
 	int	other_c;
 

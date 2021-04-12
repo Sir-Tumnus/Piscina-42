@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: usantos- <usantos-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/07 13:46:12 by usantos-          #+#    #+#             */
-/*   Updated: 2021/04/11 23:57:35 by usantos-         ###   ########.fr       */
+/*   Created: 2021/04/10 11:17:38 by usantos-          #+#    #+#             */
+/*   Updated: 2021/04/11 17:51:27 by usantos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strncpy(char *dest, char *src, unsigned int n)
+char	*ft_strstr(char *str, char *to_find)
 {
-	unsigned int	i;
-
+	int i;
+	int j;
+	
 	i = 0;
-	while (i < n && src[i] != '\0')
+	while (str[i] != '\0')
 	{
-		dest[i] = src[i];
-		i++;
+		j = 0;
+		while(str[i + j] != '\0' && str[i + j] == to_find[j])
+		{
+			if(to_find[j + 1] == '\0')
+				return (&str[i]);
+		j++;
+		}
+	i++;
 	}
-	while (i < n)
-	{
-		dest[i] = '\0';
-		i++;
-	}
-	return (dest);
+	return (0);
 }

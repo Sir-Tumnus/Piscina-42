@@ -6,7 +6,7 @@
 /*   By: usantos- <usantos-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 14:23:20 by usantos-          #+#    #+#             */
-/*   Updated: 2021/04/09 12:22:56 by usantos-         ###   ########.fr       */
+/*   Updated: 2021/04/10 01:40:31 by usantos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,22 +17,22 @@ void	ft_putchar(char c)
 	write(1, &c, 1);
 }
 
-char	ft_printable(char c)
+bool	ft_printable(char c)
 {
-	if (c >= 32 && c < 127)
-		return (c);
-	return (0);
+	return (c >= 32 && c < 127)
 }
 
 void	ft_putstr_non_printable(char *str)
 {
 	int		i;
-	char	now;
+	unsigned char	now;
 
 	i = 0;
-	while (str[i] != '\0')
+	while(true)
 	{
 		now = str[i];
+		if (now == '\0')
+			break ;
 		if (ft_printable(now))
 			ft_putchar(now);
 		else
@@ -44,3 +44,4 @@ void	ft_putstr_non_printable(char *str)
 		i++;
 	}
 }
+

@@ -1,29 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: usantos- <usantos-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/07 13:46:12 by usantos-          #+#    #+#             */
-/*   Updated: 2021/04/11 23:57:35 by usantos-         ###   ########.fr       */
+/*   Created: 2021/04/11 22:40:17 by usantos-          #+#    #+#             */
+/*   Updated: 2021/04/12 01:04:53 by usantos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strncpy(char *dest, char *src, unsigned int n)
+#include <stdlib.h>
+#include "library.h"
+
+char	*validette(char *argv)
 {
-	unsigned int	i;
+	int		i;
+	int		j;
+	char	*ponteiro;
 
 	i = 0;
-	while (i < n && src[i] != '\0')
+	j = 0;
+	ponteiro = malloc(16);
+	while (argv[j])
 	{
-		dest[i] = src[i];
-		i++;
+		if (argv[j] >= '1' && argv[j] <= '4')
+		{
+			ponteiro[i] = argv[j] - '0';
+			i++;
+			j++;
+			if (argv[j] != ' ' && i < 16)
+			{
+				ft_prints("Error\n");
+				return (0);
+			}
+		}
+		j++;
 	}
-	while (i < n)
-	{
-		dest[i] = '\0';
-		i++;
-	}
-	return (dest);
+	return (ponteiro);
 }
