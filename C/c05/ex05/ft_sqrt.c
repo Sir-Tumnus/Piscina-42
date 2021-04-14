@@ -6,13 +6,13 @@
 /*   By: usantos- <usantos-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 22:43:40 by usantos-          #+#    #+#             */
-/*   Updated: 2021/04/13 22:48:09 by usantos-         ###   ########.fr       */
+/*   Updated: 2021/04/14 12:50:27 by usantos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_sqrt(int nb)
 {
-	int	i;
+	unsigned int	i;
 
 	if (nb < 0)
 		return (0);
