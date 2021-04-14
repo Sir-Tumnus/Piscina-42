@@ -1,29 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: usantos- <usantos-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/10 11:01:48 by usantos-          #+#    #+#             */
-/*   Updated: 2021/04/12 23:17:51 by usantos-         ###   ########.fr       */
+/*   Created: 2021/04/12 20:29:50 by usantos-          #+#    #+#             */
+/*   Updated: 2021/04/13 03:13:25 by usantos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strncat(char *dest, char *src, unsigned int nb)
+int	ft_atoi(char *str)
 {
-	char *p_dest;
+	int	res;
+	int	sign;
+	int	i;
 
-	p_dest = dest;
-	while (*p_dest)
-		p_dest++;
-	while (*src && nb > 0)
+	res = 0;
+	sign = 1;
+	i = 0;
+	while ((*str == '\t') || (*str == '\v') ||
+			(*str == 'f') || (*str == '\r') ||
+			(*str == ' ') || (*str == '\n'))
+		str++;
+	while (*str == '+' || *str == '-')
 	{
-		*p_dest = *(unsigned char *)src;
-		p_dest++;
-		src++;
-		nb--;
+		if (str == '-')
+			sign *= -1;
+		str++;
 	}
-	*p_dest = '\0';
-	return (dest);
+	while (*str && str[i] >= '0' && *str <= '9')
+	{
+		res = (res * 10) + (*str - '0');
+		str++;
+	}
+	return (res * sign);
 }

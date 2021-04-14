@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_iterative_power.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: usantos- <usantos-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/10 11:01:48 by usantos-          #+#    #+#             */
-/*   Updated: 2021/04/12 23:17:51 by usantos-         ###   ########.fr       */
+/*   Created: 2021/04/13 18:21:22 by usantos-          #+#    #+#             */
+/*   Updated: 2021/04/14 00:00:38 by usantos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strncat(char *dest, char *src, unsigned int nb)
+int	ft_iterative_power(int nb, int power)
 {
-	char *p_dest;
+	int	result;
 
-	p_dest = dest;
-	while (*p_dest)
-		p_dest++;
-	while (*src && nb > 0)
+	if (power < 0)
+		return (0);
+	result = 1;
+	while (power > 0)
 	{
-		*p_dest = *(unsigned char *)src;
-		p_dest++;
-		src++;
-		nb--;
+		result *= nb;
+		power--;
 	}
-	*p_dest = '\0';
-	return (dest);
+	return (result);
 }

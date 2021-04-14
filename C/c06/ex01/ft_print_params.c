@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_print_params.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: usantos- <usantos-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/10 11:01:48 by usantos-          #+#    #+#             */
-/*   Updated: 2021/04/12 23:17:51 by usantos-         ###   ########.fr       */
+/*   Created: 2021/04/13 23:32:59 by usantos-          #+#    #+#             */
+/*   Updated: 2021/04/13 23:39:06 by usantos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strncat(char *dest, char *src, unsigned int nb)
-{
-	char *p_dest;
+#include <unistd.h>
 
-	p_dest = dest;
-	while (*p_dest)
-		p_dest++;
-	while (*src && nb > 0)
+void	ft_putstr(char *str)
+{
+	while (*str)
+		write(1, str++, 1);
+}
+
+int		main(int argc, char **argv)
+{
+	int	i;
+
+	i = 1;
+	while (i < argc)
 	{
-		*p_dest = *(unsigned char *)src;
-		p_dest++;
-		src++;
-		nb--;
+		ft_putstr(argv[i]);
+		ft_putstr("\n");
+		i++;
 	}
-	*p_dest = '\0';
-	return (dest);
 }
