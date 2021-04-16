@@ -6,7 +6,7 @@
 /*   By: usantos- <usantos-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 20:29:50 by usantos-          #+#    #+#             */
-/*   Updated: 2021/04/14 18:42:14 by usantos-         ###   ########.fr       */
+/*   Updated: 2021/04/14 23:31:51 by usantos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	ft_atoi(char *str)
 			sign *= -1;
 		str++;
 	}
-	while (*str && str[i] >= '0' && *str <= '9')
+	while (*str && *str >= '0' && *str <= '9')
 	{
 		res = (res * 10) + (*str - '0');
 		str++;
